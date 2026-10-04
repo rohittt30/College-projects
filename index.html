@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c1130">
+<title>StudyTrail - Student progress tracker</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%235446f2'/%3E%3Cpath d='M7 24c5 0 5-16 9-16s4 16 9 16' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-mode="app">
+
+<!-- Sign in / create account screen (filled by app.js) -->
+<div class="auth" id="auth"></div>
+
+<!-- Main app -->
+<div class="shell">
+  <aside class="side">
+    <div class="brand">
+      <span class="logo"><svg viewBox="0 0 24 24"><path d="M4 19c4 0 4-14 8-14s4 14 8 14"/></svg></span>
+      <span>StudyTrail<small>Progress tracker for students</small></span>
+    </div>
+    <nav class="nav" id="nav" aria-label="Main"></nav>
+    <div class="side-foot">
+      <div class="level" id="levelbox">
+        <div class="top"><span class="coin-ic">C</span><div><b id="coins">0</b><span class="lbl" id="lvl">Level 1</span></div></div>
+        <div class="xp"><i id="xp"></i></div>
+      </div>
+      <button class="me-btn" id="mebtn" onclick="openProfile()" aria-label="Open your profile"></button>
+    </div>
+  </aside>
+  <div class="wrap">
+    <div class="proto" id="proto"></div>
+    <main id="app"></main>
+  </div>
+</div>
+
+<!-- Profile drawer and username dialog -->
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="scrim" onclick="closeSheet()"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Profile"></div>
+</div>
+<div id="toasts" aria-live="polite"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="roadmaps.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
